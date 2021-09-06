@@ -1,0 +1,33 @@
+<h1>{{data.id ? 'Edytuj film' : 'Nowy film'}}</h1>
+<mat-dialog-content>
+<form [formGroup]="filmForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="title" class="form-label">Tytuł: </label>
+    <input id="title" class="form-control" type="text" formControlName="title" required>
+  </div>
+  <div class="mb-3">
+    <label for="year" class="form-label">Rok: </label>
+    <input id="year" class="form-control" type="text" formControlName="year" required>
+  </div>
+  <div class="mb-3">
+    <label for="director" class="form-label">Reżyser: </label>
+    <input id="director" class="form-control" type="text" formControlName="director" required>
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Opis: </label>
+    <textarea id="description" class="form-control" rows="4" formControlName="description" required></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="poster" class="form-label">Plakat (URL): </label>
+    <textarea id="poster" class="form-control" rows="1" formControlName="poster" required></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="trailer" class="form-label">Trailer (YouTube Embed URL, opcjonalne): </label>
+    <textarea id="trailer" class="form-control" rows="1" formControlName="trailer"></textarea>
+  </div>
+  <div class="buttons">
+    <button class="btn btn-danger" (click)="onClose()" type="button">Anuluj</button>
+    <button class="btn btn-success" type="submit">Zapisz</button>
+  </div>
+</form>
+</mat-dialog-content>

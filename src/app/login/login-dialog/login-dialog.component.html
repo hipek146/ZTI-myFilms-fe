@@ -1,0 +1,48 @@
+<mat-dialog-content>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <span class="nav-link cursor-pointer" [class.active]="tab === 'login'" (click)="toggle('login')">Login</span>
+  </li>
+  <li class="nav-item">
+    <span class="nav-link cursor-pointer" [class.active]="tab === 'register'" (click)="toggle('register')">Rejestracja</span>
+  </li>
+</ul>
+<form *ngIf="tab === 'login'" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <h1>Logowanie</h1>
+  <div class="mb-3">
+    <label for="login" class="form-label">Login: </label>
+    <input id="login" class="form-control" type="text" formControlName="login" required>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Hasło: </label>
+    <input id="password" class="form-control" type="password" formControlName="password" required>
+  </div>
+  <div class="buttons">
+    <button class="btn btn-danger" (click)="onClose()" type="button">Anuluj</button>
+    <button class="btn btn-success" type="submit">Zaloguj się</button>
+  </div>
+</form>
+<form *ngIf="tab === 'register'" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <h1>Rejestracja</h1>
+  <div class="mb-3">
+    <label for="r_login" class="form-label">Login: </label>
+    <input id="r_login" class="form-control" type="text" formControlName="login" required>
+  </div>
+  <div class="mb-3">
+    <label for="r_password" class="form-label">Hasło: </label>
+    <input id="r_password" class="form-control" type="password" formControlName="password" required>
+  </div>
+  <div class="mb-3">
+    <label for="name" class="form-label">Imię: </label>
+    <input id="name" class="form-control" type="text" formControlName="name" required>
+  </div>
+  <div class="mb-3">
+    <label for="surname" class="form-label">Nazwisko: </label>
+    <input id="surname" class="form-control" type="text" formControlName="surname" required>
+  </div>
+  <div class="buttons">
+    <button class="btn btn-danger" (click)="onClose()" type="button">Anuluj</button>
+    <button class="btn btn-success" type="submit">Zarejestruj się</button>
+  </div>
+</form>
+</mat-dialog-content>

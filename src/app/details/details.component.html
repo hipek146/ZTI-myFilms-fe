@@ -1,0 +1,84 @@
+<ng-container *ngIf="film">
+  <div class="container">
+    <div class="row underline">
+      <div class="col-4 align-self-center text-center ceil">
+        <img [src]="film.poster" class="poster" [alt]="film.title"/>
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col text-center underline">
+            <h2>{{film.title}}</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-center ceil">Rok: <b>{{film.year}}</b></div>
+          <div class="col text-center ceil">Reżyser: <b>{{film.director}}</b></div>
+        </div>
+        <div class="row">
+          <div class="col text-center rate-ceil margin-top">
+            <ng-container *ngIf="user; else signUpToRate">
+              <ng-container *ngIf="myRating; else notRated">
+                Twoja ocena: <span class="my-rating">{{active > 0 ? active : myRating}}</span>
+                <span class="delete-rating cursor-pointer" (click)="deleteRating()">Cofnij</span>
+              </ng-container>
+              <ng-template #notRated>
+                <ng-container *ngIf="active > 0; else notRatedYet">
+                  Proponowana ocena: {{active}}
+                </ng-container>
+                <ng-template #notRatedYet>
+                  Jeszcze nie oceniono
+                </ng-template>
+              </ng-template>
+            </ng-container>
+            <ng-template #signUpToRate>
+              Zaloguj się aby ocenić ten film
+            </ng-template>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-center ceil">
+            <span *ngFor="let star of stars; let i = index" (mouseover)="updateStars(i+1)" (mouseleave)="updateStars(0)" (click)="rate(i+1)"
+                  [class.cursor-pointer]="this.user">
+              <i *ngIf="i < active" class="bi bi-star-fill star active"></i>
+              <i *ngIf="i >= active && i < fill" class="bi bi-star-fill star"></i>
+              <i *ngIf="i >= active && i === fill && half" class="bi bi-star-half star"></i>
+              <i *ngIf="i >= active && ((i >= fill && !half) || i > fill)" class="bi bi-star star"></i>
+            </span>
+            <span class="rating">(<b>{{round(rating)}}</b>)</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-center rate-ceil">
+            <ng-container *ngIf="count > 1" >
+              Na podstawie {{count}} ocen
+            </ng-container>
+            <ng-container *ngIf="count === 1" >
+              Na podstawie jednej oceny
+            </ng-container>
+            <ng-container *ngIf="count === 0" >
+              Brak ocen
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-sm">
+    <div class="row">
+      <div class="col">
+        <span class="description-header">Opis:</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p>{{film.description}}</p>
+      </div>
+    </div>
+    <div *ngIf="trailerUrl" class="row">
+      <div class="col text-center trailer">
+        <iframe class="video" [src]="trailerUrl" title="Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</ng-container>
+

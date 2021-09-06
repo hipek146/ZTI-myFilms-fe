@@ -1,0 +1,118 @@
+p {
+  text-align: justify;
+}
+
+.container {
+  padding: 30px 4% 0;
+}
+
+.ceil {
+  padding: 8px;
+}
+
+.margin-top {
+  margin-top: 14px;
+}
+
+.my-rating {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  width: 34px;
+  box-sizing: border-box;
+  padding: 2px;
+  margin: 0 3px;
+  border: 1px solid #333;
+  border-radius: 3px;
+  box-shadow: 0 0 4px -1px #333;
+}
+
+.delete-rating {
+  margin-left: 2px;
+  font-size: .8rem;
+  color: #666;
+  font-style: italic;
+  font-weight: bold;
+}
+.delete-rating:hover {
+  color: #888;
+  text-decoration: underline;
+}
+
+.rate-ceil {
+  color: #555;
+  font-weight: 500;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.star {
+  margin: 2px;
+  font-size: 1.2rem;
+  color: #D4AF37;
+}
+.active {
+  color: red;
+}
+
+.rating {
+  font-size: 1rem;
+  position: relative;
+  top: -1px;
+  margin: 8px;
+}
+
+.underline {
+  border-bottom: 2px solid #444;
+  box-shadow: 0 4px 4px -4px #444;
+}
+
+.container-sm {
+  max-width: 762px;
+}
+
+.description-header {
+  display: inline-block;
+  margin: 10px 0 12px 8px;
+  padding: 3px 27px 3px 5px;
+  font-size: 1rem;
+  font-weight: 400;
+  border-bottom: 1px solid #444;
+}
+.poster {
+  width: 240px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.trailer {
+  margin: 18px 0;
+}
+
+.video {
+  width: 640px;
+  height: 360px;
+  border: 2px solid #333;
+  box-shadow: 0 0 5px 0 #333;
+}
+
+@media(max-width: 768px) {
+  [class*="poster"] {
+    width: 120px;
+    height: 100px
+  }
+
+  [class*="video"] {
+    width: 426px;
+    height: 240px
+  }
+}
+
+@media(max-width: 480px) {
+  [class*="video"] {
+    width: 256px;
+    height: 144px
+  }
+}

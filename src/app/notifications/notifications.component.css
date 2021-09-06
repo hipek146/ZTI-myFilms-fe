@@ -1,0 +1,15 @@
+.notifications {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 999;
+  padding-top: 10px;
+}
+
+.message {
+  text-align: center;
+}
